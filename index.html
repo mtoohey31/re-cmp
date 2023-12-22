@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en" style="height: 100%">
+  <head>
+    <meta charset="utf-8" />
+    <title>re-cmp</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <script type="module">
+      const regexInput = document.querySelector(".regex");
+      const compileError = document.querySelector(".compile-error");
+      const corpusInput = document.querySelector(".corpus");
+
+      const { engine } = await import("./engines/go/index.mjs");
+
+      const updateMatches = async (text) => {
+        // TODO: Loading indicator.
+        const matches = await regex.matches(text);
+        matches.sort((m1, m2) => m1.start > m2.start);
+
+        let cursor = undefined;
+        if (corpusInput.contains(document.activeElement)) {
+          // TODO: Handle pasting.
+          const { focusNode, focusOffset } = window.getSelection();
+          let focusStart = 0;
+          if (focusNode.parentElement.dataset.hasOwnProperty("start")) {
+            focusStart = parseInt(focusNode.parentElement.dataset.start);
+          }
+          cursor = focusStart + focusOffset;
+          console.log(focusNode, cursor, focusStart, focusOffset);
+        }
+
+        corpusInput.textContent = "";
+
+        const pushChild = (start, end, isMatch) => {
+          const span = document.createElement("span");
+          span.textContent = text.slice(start, end);
+          span.dataset.start = start;
+          if (isMatch) {
+            span.style.setProperty("background-color", "aqua");
+          }
+          corpusInput.appendChild(span);
+          if (cursor !== undefined && start <= cursor && cursor <= end) {
+            const focusNode = span.firstChild !== null ? span.firstChild : span;
+            window.getSelection().collapse(focusNode, cursor - start);
+          }
+        };
+
+        // TODO: Spaces break highlight offsets.
+        let prevStart = 0;
+        for (const { start, end } of matches) {
+          pushChild(prevStart, start, false);
+          pushChild(start, end, true);
+          prevStart = end;
+        }
+        pushChild(prevStart, text.length, false);
+      };
+
+      let regex = await engine.compile(regexInput.value);
+      regexInput.addEventListener("input", async (event) => {
+        try {
+          if (regex !== null) {
+            regex.drop();
+          }
+
+          regex = await engine.compile(event.target.value);
+          compileError.textContent = "";
+          await updateMatches(corpusInput.textContent);
+        } catch (err) {
+          if (!(err instanceof SyntaxError)) {
+            throw err;
+          }
+
+          regex = null;
+          compileError.textContent = err.message;
+        }
+      });
+
+      corpusInput.addEventListener("input", async (event) => {
+        if (regex === null) {
+          return;
+        }
+
+        await updateMatches(event.target.textContent);
+      });
+    </script>
+  </head>
+  <body
+    style="
+      height: calc(100% - 2rem);
+      margin: 0;
+      gap: 0.5rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+    "
+  >
+    <!-- TODO: Engine selection. -->
+    <!-- TODO: Engine options. -->
+    <!-- TODO: Multiple simultaneous regexes. -->
+    <!-- TODO: Different engines per simultaneous regex. -->
+    <!-- TODO: Best-effort syntax highlighting for this. -->
+    <!-- TODO: Engine-dependent syntax highlighting? -->
+    <input
+      class="regex"
+      style="font-family: monospace"
+      type="text"
+      placeholder="regex"
+    />
+    <!-- TODO: Better styling and transitions for this. -->
+    <div class="compile-error" style="font-family: monospace; color: red"></div>
+    <!-- TODO: Maybe switch to ACE so this isn't so clunky? Does that support highlighting arbitrary matches? -->
+    <div
+      class="corpus"
+      contenteditable="true"
+      style="
+        font-family: monospace;
+        resize: none;
+        flex-grow: 1;
+        border: 1px solid black;
+      "
+    ></div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+/result
+/.direnv
+
+*.wasm
+engines/go/wasm_exec.js
