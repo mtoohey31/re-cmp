@@ -32,13 +32,17 @@ export class Regex {
    * @param {string} text to search for matches.
    * @returns {Promise<Match[]>} Promise resolving to matches within text.
    */
-  async matches(text) {}
+  async matches(text) {
+    throw new Error("abstract method");
+  }
 
   /**
    * Drop this regex, freeing resources. This regex cannot be used after drop is
    * called.
    */
-  drop() {}
+  drop() {
+    throw new Error("abstract method");
+  }
 }
 
 /**

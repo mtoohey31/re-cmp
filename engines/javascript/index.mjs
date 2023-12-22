@@ -1,10 +1,10 @@
 // @ts-check
 
-import { Match } from "../engine.mjs";
+import { Match } from "../index.mjs";
 
 /**
- * @typedef {import("../engine.mjs").Regex} IRegex
- * @typedef {import("../engine.mjs").Engine} IEngine
+ * @typedef {import("../index.mjs").Regex} IRegex
+ * @typedef {import("../index.mjs").Engine} IEngine
  */
 
 /**

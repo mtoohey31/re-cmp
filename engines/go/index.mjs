@@ -1,4 +1,5 @@
-// TODO: @ts-check
+// TODO: Enable and fix checking.
+// @ts-nocheck
 await import("./wasm_exec.js");
 
 const go = new Go();

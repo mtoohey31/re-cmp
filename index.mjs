@@ -1,5 +1,3 @@
-// @ts-check
-
 const regexInput = document.querySelector("input.regex");
 if (regexInput === null) {
   throw new Error("couldn't find regex element");
@@ -30,6 +28,9 @@ const updateMatches = async (text) => {
   const matches = await regex.matches(text);
   matches.sort((m1, m2) => Number(m1.start > m2.start));
 
+  /**
+   * @type {undefined | number}
+   */
   let cursor = undefined;
   const selection = window.getSelection();
   if (corpusInput.contains(document.activeElement) && selection !== null) {
@@ -88,7 +89,7 @@ const updateMatches = async (text) => {
 };
 
 /**
- * @type {import("./engines/engine.mjs").Regex | null}
+ * @type {import("./engines/index.mjs").Regex | null}
  */
 let regex = await engine.compile(regexInput.value);
 regexInput.addEventListener("input", async (event) => {

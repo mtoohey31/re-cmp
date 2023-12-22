@@ -1,3 +1,4 @@
 #!/usr/bin/env -S bash -euo pipefail
 
 prettier --log-level warn -c .
+tsc -p tsconfig.json

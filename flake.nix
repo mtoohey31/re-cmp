@@ -10,7 +10,7 @@
     let
       pkgs = import nixpkgs { inherit system; };
       inherit (pkgs) binaryen caddy go gopls mkShell nodePackages;
-      inherit (nodePackages) prettier typescript-language-server;
+      inherit (nodePackages) prettier typescript typescript-language-server;
     in
     {
       devShells.default = mkShell {
@@ -20,6 +20,7 @@
           go
           gopls
           prettier
+          typescript
           typescript-language-server
         ];
       };
