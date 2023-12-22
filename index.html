@@ -9,7 +9,7 @@
       const compileError = document.querySelector(".compile-error");
       const corpusInput = document.querySelector(".corpus");
 
-      const { engine } = await import("./engines/go/index.mjs");
+      const { engine } = await import("./engines/javascript/index.mjs");
 
       const updateMatches = async (text) => {
         // TODO: Loading indicator.
