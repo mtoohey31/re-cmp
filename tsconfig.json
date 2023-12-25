@@ -7,5 +7,10 @@
     "strict": true,
     "target": "es2022"
   },
-  "files": ["index.mjs", "engines/index.mjs", "engines/javascript/index.mjs"]
+  "files": [
+    "index.mjs",
+    "engines/index.mjs",
+    "engines/javascript/index.mjs",
+    "engines/rust/index.mjs"
+  ]
 }

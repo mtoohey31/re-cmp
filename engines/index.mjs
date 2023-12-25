@@ -78,9 +78,10 @@ export class Engine {
 }
 
 // Using the JavaScript engine as the default ensures fast initial loads.
-export const defaultEngineName = "JavaScript (browser native)";
+export const defaultEngineName = "JavaScript browser native";
 
 export const engines = new Map([
-  ["Go regexp", "./engines/go/index.mjs"],
+  ["Go regexp package", "./engines/go/index.mjs"],
+  ["Rust regex crate", "./engines/rust/index.mjs"],
   [defaultEngineName, "./engines/javascript/index.mjs"],
 ]);

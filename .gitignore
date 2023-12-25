@@ -2,4 +2,6 @@
 /.direnv
 
 *.wasm
-engines/go/wasm_exec.js
+/engines/go/wasm_exec.js
+/engines/rust/pkg
+/engines/rust/target
