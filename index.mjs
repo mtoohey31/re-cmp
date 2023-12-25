@@ -92,6 +92,36 @@ if (defaultEnginePath === undefined) {
 
 let { engine } = await import(defaultEnginePath);
 
+/** @type {number[]} */
+let matchIds = [];
+const clearMatches = () => {
+  matchIds.forEach((matchId) => corpusEditor.session.removeMarker(matchId));
+  matchIds = [];
+};
+
+const updateMatches = async () => {
+  if (regex === null) {
+    throw new Error("updateMatches called while regex was null");
+  }
+
+  clearMatches();
+
+  // TODO: Loading indicator.
+  const matches = await regex.matches(corpusEditor.session.getValue());
+
+  for (const match of matches) {
+    const startPos = corpusEditor.session.doc.indexToPosition(match.start, 0);
+    const endPos = corpusEditor.session.doc.indexToPosition(match.end, 0);
+    const range = new Range(
+      startPos.row,
+      startPos.column,
+      endPos.row,
+      endPos.column,
+    );
+    matchIds.push(corpusEditor.session.addMarker(range, "match", "text"));
+  }
+};
+
 const recompile = async () => {
   try {
     if (regex !== null) {
@@ -107,6 +137,7 @@ const recompile = async () => {
     }
 
     regex = null;
+    clearMatches();
     compileError.textContent = err.message;
   }
 };
@@ -124,32 +155,6 @@ engineSelect.addEventListener("change", async function () {
 
   await recompile();
 });
-
-/** @type {number[]} */
-let matchIds = [];
-const updateMatches = async () => {
-  if (regex === null) {
-    throw new Error("updateMatches called while regex was null");
-  }
-
-  matchIds.forEach((matchId) => corpusEditor.session.removeMarker(matchId));
-  matchIds = [];
-
-  // TODO: Loading indicator.
-  const matches = await regex.matches(corpusEditor.session.getValue());
-
-  for (const match of matches) {
-    const startPos = corpusEditor.session.doc.indexToPosition(match.start, 0);
-    const endPos = corpusEditor.session.doc.indexToPosition(match.end, 0);
-    const range = new Range(
-      startPos.row,
-      startPos.column,
-      endPos.row,
-      endPos.column,
-    );
-    matchIds.push(corpusEditor.session.addMarker(range, "match", "text"));
-  }
-};
 
 /**
  * @type {import("./engines/index.mjs").Regex | null}
