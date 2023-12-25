@@ -5,6 +5,19 @@
     <title>re-cmp</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
     <script src="index.mjs" type="module"></script>
+    <script
+      src="/vendor/ace-builds/src-min/ace.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <style>
+      .match {
+        background: aqua;
+        border: 1px solid black;
+        position: absolute;
+        z-index: 20;
+      }
+    </style>
   </head>
   <body
     style="
@@ -22,24 +35,13 @@
     <!-- TODO: Different engines per simultaneous regex. -->
     <!-- TODO: Best-effort syntax highlighting for this. -->
     <!-- TODO: Engine-dependent syntax highlighting? -->
-    <input
-      class="regex"
-      style="font-family: monospace"
-      type="text"
-      placeholder="regex"
-    />
+    <!-- TODO: Preserve data on reloads if possible under GDPR without cookie banners. -->
+    <div id="regex" style="border: 1px solid black; height: 16px"></div>
     <!-- TODO: Better styling and transitions for this. -->
-    <div class="compile-error" style="font-family: monospace; color: red"></div>
-    <!-- TODO: Maybe switch to ACE so this isn't so clunky? Does that support highlighting arbitrary matches? -->
+    <div id="compile-error" style="font-family: monospace; color: red"></div>
     <div
-      class="corpus"
-      contenteditable="true"
-      style="
-        font-family: monospace;
-        resize: none;
-        flex-grow: 1;
-        border: 1px solid black;
-      "
+      id="corpus"
+      style="resize: none; flex-grow: 1; border: 1px solid black"
     ></div>
   </body>
 </html>

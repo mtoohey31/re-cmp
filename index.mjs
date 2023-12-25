@@ -1,113 +1,99 @@
-const regexInput = document.querySelector("input.regex");
-if (regexInput === null) {
-  throw new Error("couldn't find regex element");
-}
-if (!(regexInput instanceof HTMLInputElement)) {
-  throw new Error("regex element was of unexpected type");
-}
-const compileError = document.querySelector(".compile-error");
+/** @typedef {import("vendor/ace-builds/ace.d.ts").Ace.Editor} Editor */
+
+// @ts-ignore
+const Range = ace.require("ace/range").Range;
+
+/**
+ * @param {Editor} editor
+ * @param {string} key
+ */
+const unbindKey = (editor, key) => {
+  /** @type {import("vendor/ace-builds/ace.d.ts").Ace.CommandLike} */
+  // @ts-ignore
+  const command = null;
+  editor.commands.bindKey(key, command);
+};
+
+/** @type {Editor} */
+// @ts-ignore
+const regexEditor = ace.edit("regex");
+
+// TODO: Implement regex mode for highlighting, see https://github.com/ajaxorg/ace/issues/1752
+regexEditor.setOptions({
+  highlightActiveLine: false,
+  maxLines: 1,
+  minLines: 1,
+  showGutter: false,
+  showLineNumbers: false,
+  showPrintMargin: false,
+});
+regexEditor.on("paste", (event) => {
+  event.text = event.text.replace(/[\r\n]+/g, " ");
+});
+unbindKey(regexEditor, "Enter|Shift-Enter");
+unbindKey(regexEditor, "Tab");
+unbindKey(regexEditor, "Shift-Tab");
+
+/** @type {Editor} */
+// @ts-ignore
+const corpusEditor = ace.edit("corpus");
+corpusEditor.setOptions({
+  highlightActiveLine: false,
+  showGutter: false,
+  showLineNumbers: false,
+  showPrintMargin: false,
+});
+unbindKey(corpusEditor, "Tab");
+unbindKey(corpusEditor, "Shift-Tab");
+
+regexEditor.focus();
+
+const compileError = document.getElementById("compile-error");
 if (compileError === null) {
   throw new Error("couldn't find compile-error element");
-}
-const corpusInput = document.querySelector(".corpus");
-if (corpusInput === null) {
-  throw new Error("couldn't find corpus element");
 }
 
 const { engine } = await import("./engines/javascript/index.mjs");
 
-/**
- * @param {string} text
- */
-const updateMatches = async (text) => {
+/** @type {number[]} */
+let matchIds = [];
+const updateMatches = async () => {
   if (regex === null) {
     throw new Error("updateMatches called while regex was null");
   }
 
+  matchIds.forEach((matchId) => corpusEditor.session.removeMarker(matchId));
+  matchIds = [];
+
   // TODO: Loading indicator.
-  const matches = await regex.matches(text);
-  matches.sort((m1, m2) => Number(m1.start > m2.start));
+  const matches = await regex.matches(corpusEditor.session.getValue());
 
-  /**
-   * @type {undefined | number}
-   */
-  let cursor = undefined;
-  const selection = window.getSelection();
-  if (corpusInput.contains(document.activeElement) && selection !== null) {
-    // TODO: Handle pasting.
-    const { focusNode, focusOffset } = selection;
-    let focusStart = 0;
-    if (focusNode !== null) {
-      const focusParent = focusNode.parentElement ?? focusNode;
-      if (
-        focusParent instanceof HTMLElement &&
-        focusParent.dataset.hasOwnProperty("start")
-      ) {
-        focusStart = parseInt(focusParent.dataset.start ?? "0");
-      }
-    }
-    cursor = focusStart + focusOffset;
+  for (const match of matches) {
+    const startPos = corpusEditor.session.doc.indexToPosition(match.start, 0);
+    const endPos = corpusEditor.session.doc.indexToPosition(match.end, 0);
+    const range = new Range(
+      startPos.row,
+      startPos.column,
+      endPos.row,
+      endPos.column,
+    );
+    matchIds.push(corpusEditor.session.addMarker(range, "match", "text"));
   }
-
-  corpusInput.textContent = "";
-
-  /**
-   * @param {number} start
-   * @param {number} end
-   * @param {boolean} isMatch
-   */
-  const pushChild = (start, end, isMatch) => {
-    const span = document.createElement("span");
-    span.textContent = text.slice(start, end);
-    span.dataset.start = start.toString();
-
-    if (isMatch) {
-      span.style.setProperty("background-color", "aqua");
-    }
-
-    corpusInput.appendChild(span);
-
-    const selection = window.getSelection();
-    if (selection === null) {
-      return;
-    }
-
-    if (cursor !== undefined && start <= cursor && cursor <= end) {
-      const focusNode = span.firstChild ?? span;
-      selection.collapse(focusNode, cursor - start);
-    }
-  };
-
-  // TODO: Spaces break highlight offsets.
-  let prevStart = 0;
-  for (const { start, end } of matches) {
-    pushChild(prevStart, start, false);
-    pushChild(start, end, true);
-    prevStart = end;
-  }
-  pushChild(prevStart, text.length, false);
 };
 
 /**
  * @type {import("./engines/index.mjs").Regex | null}
  */
-let regex = await engine.compile(regexInput.value);
-regexInput.addEventListener("input", async (event) => {
+let regex = await engine.compile("");
+regexEditor.on("change", async () => {
   try {
     if (regex !== null) {
       regex.drop();
     }
 
-    if (event.target === null) {
-      throw new Error("null event target");
-    }
-    if (!(event.target instanceof HTMLInputElement)) {
-      throw new Error("event target of unexpected type");
-    }
-
-    regex = await engine.compile(event.target.value);
+    regex = await engine.compile(regexEditor.session.getValue());
     compileError.textContent = "";
-    await updateMatches(corpusInput.textContent ?? "");
+    await updateMatches();
   } catch (err) {
     if (!(err instanceof SyntaxError)) {
       throw err;
@@ -118,17 +104,10 @@ regexInput.addEventListener("input", async (event) => {
   }
 });
 
-corpusInput.addEventListener("input", async (event) => {
+corpusEditor.on("change", async () => {
   if (regex === null) {
     return;
   }
 
-  if (event.target === null) {
-    throw new Error("null event target");
-  }
-  if (!(event.target instanceof Element)) {
-    throw new Error("event target of unexpected type");
-  }
-
-  await updateMatches(event.target.textContent ?? "");
+  await updateMatches();
 });

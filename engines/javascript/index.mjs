@@ -4,10 +4,6 @@ import { Match } from "../index.mjs";
 
 /**
  * @typedef {import("../index.mjs").Regex} IRegex
- * @typedef {import("../index.mjs").Engine} IEngine
- */
-
-/**
  * @implements IRegex
  */
 class Regex {
@@ -49,6 +45,7 @@ class Regex {
 }
 
 /**
+ * @typedef {import("../index.mjs").Engine} IEngine
  * @implements IEngine
  */
 class Engine {
