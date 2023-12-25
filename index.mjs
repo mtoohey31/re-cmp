@@ -1,7 +1,11 @@
+// Types.
+
 /** @typedef {import("vendor/ace-builds/ace.d.ts").Ace.Editor} Editor */
 
 // @ts-ignore
 const Range = ace.require("ace/range").Range;
+
+// Utils.
 
 /**
  * @param {Editor} editor
@@ -13,6 +17,8 @@ const unbindKey = (editor, key) => {
   const command = null;
   editor.commands.bindKey(key, command);
 };
+
+// Editor Setup.
 
 /** @type {Editor} */
 // @ts-ignore
@@ -48,12 +54,76 @@ unbindKey(corpusEditor, "Shift-Tab");
 
 regexEditor.focus();
 
+// Engine and Listener Setup.
+
 const compileError = document.getElementById("compile-error");
 if (compileError === null) {
   throw new Error("couldn't find compile-error element");
 }
+const engineSelect = document.getElementById("engine");
+if (engineSelect === null) {
+  throw new Error("couldn't find engine element");
+}
+if (!(engineSelect instanceof HTMLSelectElement)) {
+  throw new Error("engine element was of unexpected type");
+}
 
-const { engine } = await import("./engines/javascript/index.mjs");
+const { engines, defaultEngineName } = await import("./engines/index.mjs");
+
+// Insert defaultEngineName first so it shows as selected first.
+const option = document.createElement("option");
+option.textContent = defaultEngineName;
+engineSelect.appendChild(option);
+
+for (const engineName of engines.keys()) {
+  if (engineName === defaultEngineName) {
+    continue;
+  }
+
+  const option = document.createElement("option");
+  option.textContent = engineName;
+  engineSelect.appendChild(option);
+}
+
+const defaultEnginePath = engines.get(defaultEngineName);
+if (defaultEnginePath === undefined) {
+  throw new Error("couldn't find default engine path");
+}
+
+let { engine } = await import(defaultEnginePath);
+
+const recompile = async () => {
+  try {
+    if (regex !== null) {
+      regex.drop();
+    }
+
+    regex = await engine.compile(regexEditor.session.getValue());
+    compileError.textContent = "";
+    await updateMatches();
+  } catch (err) {
+    if (!(err instanceof SyntaxError)) {
+      throw err;
+    }
+
+    regex = null;
+    compileError.textContent = err.message;
+  }
+};
+
+engineSelect.addEventListener("change", async function () {
+  const engineName = this.value;
+  const enginePath = engines.get(engineName);
+  if (enginePath === undefined) {
+    throw new Error(`invalid engine: ${engineName}`);
+  }
+
+  // TODO: Loading indicator.
+  const { engine: newEngine } = await import(enginePath);
+  engine = newEngine;
+
+  await recompile();
+});
 
 /** @type {number[]} */
 let matchIds = [];
@@ -84,25 +154,9 @@ const updateMatches = async () => {
 /**
  * @type {import("./engines/index.mjs").Regex | null}
  */
-let regex = await engine.compile("");
-regexEditor.on("change", async () => {
-  try {
-    if (regex !== null) {
-      regex.drop();
-    }
-
-    regex = await engine.compile(regexEditor.session.getValue());
-    compileError.textContent = "";
-    await updateMatches();
-  } catch (err) {
-    if (!(err instanceof SyntaxError)) {
-      throw err;
-    }
-
-    regex = null;
-    compileError.textContent = err.message;
-  }
-});
+let regex = null;
+await recompile();
+regexEditor.on("change", recompile);
 
 corpusEditor.on("change", async () => {
   if (regex === null) {

@@ -32,14 +32,25 @@
     <noscript style="font-family: monospace; color: red"
       >RegExMachina requires JavaScript.</noscript
     >
-    <!-- TODO: Engine selection. -->
     <!-- TODO: Engine options. -->
     <!-- TODO: Multiple simultaneous regexes. -->
     <!-- TODO: Different engines per simultaneous regex. -->
     <!-- TODO: Best-effort syntax highlighting for this. -->
     <!-- TODO: Engine-dependent syntax highlighting? -->
     <!-- TODO: Preserve data on reloads if possible under GDPR without cookie banners. -->
-    <div id="regex" style="border: 1px solid black; height: 16px"></div>
+    <div style="display: flex; align-items: center; gap: 0.5rem">
+      <div
+        id="regex"
+        style="
+          flex-grow: 1;
+          border: 1px solid black;
+          display: inline;
+          height: 16px;
+        "
+      ></div>
+      <label for="engine">Engine:</label
+      ><select name="engine" id="engine" style="display: inline"></select>
+    </div>
     <!-- TODO: Better styling and transitions for this. -->
     <div id="compile-error" style="font-family: monospace; color: red"></div>
     <div
