@@ -83,5 +83,6 @@ export const defaultEngineName = "JavaScript browser native";
 export const engines = new Map([
   ["Go regexp package", "./engines/go/index.mjs"],
   ["Rust regex crate", "./engines/rust/index.mjs"],
+  ["PCRE", "./engines/pcre/index.mjs"],
   [defaultEngineName, "./engines/javascript/index.mjs"],
 ]);

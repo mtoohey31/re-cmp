@@ -1,4 +1,5 @@
 #!/usr/bin/env -S bash -euo pipefail
 
+find . -name '*.c' | xargs clang-format --dry-run -Werror
 prettier --log-level warn -c .
 tsc -p tsconfig.json

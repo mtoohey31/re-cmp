@@ -1,7 +1,11 @@
 /result
 /.direnv
 
+/.em-cache
+
 *.wasm
 /engines/go/wasm_exec.js
+/engines/pcre/compile_commands.json
+/engines/pcre/engine.mjs
 /engines/rust/pkg
 /engines/rust/target

@@ -12,6 +12,7 @@
     "engines/index.mjs",
     "engines/go/index.mjs",
     "engines/javascript/index.mjs",
+    "engines/pcre/index.mjs",
     "engines/rust/index.mjs"
   ]
 }
