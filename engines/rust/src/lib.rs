@@ -1,11 +1,8 @@
-use js_sys::{Array, Promise};
+use js_sys::{Error, SyntaxError};
 use regex::{Match as Match_, Regex as Regex_};
-use serde::Serialize;
-use std::sync::Arc;
 use wasm_bindgen::prelude::*;
-use wasm_bindgen_futures::future_to_promise;
 
-#[derive(Serialize)]
+#[wasm_bindgen]
 pub struct Match {
     pub start: usize,
     pub end: usize,
@@ -21,25 +18,15 @@ impl From<Match_<'_>> for Match {
 }
 
 #[wasm_bindgen]
-pub struct Regex(Arc<Regex_>);
+pub struct Regex(Regex_);
 
 #[wasm_bindgen]
 impl Regex {
-    pub fn matches(&self, text: String) -> Promise {
+    pub fn matches(&self, text: &str) -> Vec<Match> {
         #[cfg(feature = "console_error_panic_hook")]
         console_error_panic_hook::set_once();
 
-        let regex = self.0.clone();
-        // TODO: Investigate whether unwrap below is safe.
-        future_to_promise(async move {
-            let mut res = Array::new();
-            res.extend(
-                regex
-                    .find_iter(&text)
-                    .map(|m| serde_wasm_bindgen::to_value(&Match::from(m)).unwrap()),
-            );
-            Ok(res.into())
-        })
+        self.0.find_iter(&text).map(Match::from).collect()
     }
 }
 
@@ -52,14 +39,12 @@ impl Engine {
         Self
     }
 
-    pub fn compile(&mut self, regex: String) -> Promise {
+    pub fn compile(&mut self, regex: &str) -> Result<Regex, Error> {
         #[cfg(feature = "console_error_panic_hook")]
         console_error_panic_hook::set_once();
 
-        future_to_promise(async move {
-            Regex_::new(&regex)
-                .map(|regex| Regex(Arc::new(regex)).into())
-                .map_err(|err| js_sys::SyntaxError::new(&err.to_string()).into())
-        })
+        Regex_::new(&regex)
+            .map(|regex| Regex(regex).into())
+            .map_err(|err| SyntaxError::new(&err.to_string()).into())
     }
 }

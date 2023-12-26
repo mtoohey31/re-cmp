@@ -27,10 +27,10 @@ class Regex {
    * Search for matches of this regex within the given text.
    *
    * @param {string} text to search for matches.
-   * @returns {Promise<Match[]>} Promise resolving to matches within text.
+   * @returns {Match[]} Matches of this regex within text.
    */
-  async matches(text) {
-    return await this.inner.matches(text);
+  matches(text) {
+    return this.inner.matches(text);
   }
 
   drop() {
@@ -59,15 +59,15 @@ class Engine {
    * Compile the given string into a regex.
    *
    * @param {string} regex string to compile.
-   * @returns {Promise<Regex>} Promise resolving to compiled regex. May reject
-   * with a SyntaxError if the regex string cannot be compiled.
+   * @returns {Regex} The compiled regex.
+   * @throws {SyntaxError} When regex is malformed.
    */
-  async compile(regex) {
-    const regex_ = await this.inner.compile(regex);
+  compile(regex) {
+    const regex_ = this.inner.compile(regex);
     return new Regex(regex_);
   }
 
-  async drop() {
+  drop() {
     this.inner.free();
   }
 }

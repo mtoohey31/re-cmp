@@ -32,9 +32,9 @@ export class Regex {
    *
    * @abstract
    * @param {string} text to search for matches.
-   * @returns {Promise<Match[]>} Promise resolving to matches within text.
+   * @returns {Match[]} Matches of this regex within text.
    */
-  async matches(text) {
+  matches(text) {
     throw new Error("abstract method");
   }
 
@@ -59,10 +59,10 @@ export class Engine {
    *
    * @abstract
    * @param {string} regex string to compile.
-   * @returns {Promise<Regex>} Promise resolving to compiled regex. May reject
-   * with a SyntaxError if the regex string cannot be compiled.
+   * @returns {Regex} The compiled regex.
+   * @throws {SyntaxError} When regex is malformed.
    */
-  async compile(regex) {
+  compile(regex) {
     throw new Error("abstract method");
   }
 

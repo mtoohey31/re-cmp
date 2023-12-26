@@ -10,6 +10,7 @@
   "files": [
     "index.mjs",
     "engines/index.mjs",
+    "engines/go/index.mjs",
     "engines/javascript/index.mjs",
     "engines/rust/index.mjs"
   ]

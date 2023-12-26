@@ -90,6 +90,7 @@ if (defaultEnginePath === undefined) {
   throw new Error("couldn't find default engine path");
 }
 
+/** @type {{engine: import("./engines/index.mjs").Engine}} */
 let { engine } = await import(defaultEnginePath);
 
 /** @type {number[]} */
@@ -107,7 +108,7 @@ const updateMatches = async () => {
   clearMatches();
 
   // TODO: Loading indicator.
-  const matches = await regex.matches(corpusEditor.session.getValue());
+  const matches = regex.matches(corpusEditor.session.getValue());
 
   for (const match of matches) {
     const startPos = corpusEditor.session.doc.indexToPosition(match.start, 0);
@@ -128,7 +129,7 @@ const recompile = async () => {
       regex.drop();
     }
 
-    regex = await engine.compile(regexEditor.session.getValue());
+    regex = engine.compile(regexEditor.session.getValue());
     compileError.textContent = "";
     await updateMatches();
   } catch (err) {
