@@ -2,8 +2,8 @@
 
 /**
 @typedef {import("../index.mjs").Match} Match
-@typedef {import("./pkg/re_cmp_engine_rust.d.ts").Engine} Engine_
-@typedef {import("./pkg/re_cmp_engine_rust.d.ts").Regex} Regex_
+@typedef {import("./re_cmp_engine_rust.d.ts").Engine} Engine_
+@typedef {import("./re_cmp_engine_rust.d.ts").Regex} Regex_
 */
 
 /**
@@ -19,7 +19,7 @@ class Regex {
   }
 
   /**
-   * @type {import("./pkg/re_cmp_engine_rust.d.ts").Regex}
+   * @type {import("./re_cmp_engine_rust.d.ts").Regex}
    */
   inner;
 
@@ -73,7 +73,7 @@ class Engine {
 }
 
 const { default: init, Engine: Engine_ } = await import(
-  "./pkg/re_cmp_engine_rust.js"
+  "./re_cmp_engine_rust.js"
 );
 await init();
 const engine_ = Engine_.new();

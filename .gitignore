@@ -1,11 +1,12 @@
-/result
+result
 /.direnv
 
+/build
 /.em-cache
 
 *.wasm
 /engines/go/wasm_exec.js
 /engines/pcre/compile_commands.json
 /engines/pcre/engine.mjs
-/engines/rust/pkg
+/engines/rust/re_cmp_engine_rust*
 /engines/rust/target
