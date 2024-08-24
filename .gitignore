@@ -5,6 +5,9 @@ result
 /.em-cache
 
 *.wasm
+*.wasm.br
+*.wasm.zst
+*.wasm.gz
 /engines/go/wasm_exec.js
 /engines/pcre/compile_commands.json
 /engines/pcre/engine.mjs

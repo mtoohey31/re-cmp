@@ -46,12 +46,14 @@
             version = "0.1.0";
             src = builtins.path { path = ./..; name = "re-cmp-src"; };
             buildInputs = [
+              final.brotli
               final.emscripten
               final.go
               final.nodePackages.uglify-js
               final.pcre-wasm
               rust
               final.wasm-bindgen-cli
+              final.zstd
             ];
             preBuild = ''
               export EM_CACHE="$TMPDIR/em-cache"
@@ -86,8 +88,9 @@
         self.overlays.expects-naersk-and-rust-overlay
       ];
       pkgs = import nixpkgs { inherit overlays system; };
-      inherit (pkgs) bear binaryen caddy clang-tools emscripten go gopls mkShell
-        nodePackages pcre-wasm re-cmp rust-analyzer rust-bin wasm-bindgen-cli;
+      inherit (pkgs) bear binaryen brotli caddy clang-tools emscripten go gopls
+        mkShell nodePackages pcre-wasm re-cmp rust-analyzer rust-bin
+        wasm-bindgen-cli zstd;
       rust =
         rust-bin.fromRustupToolchainFile ../engines/rust/rust-toolchain.toml;
       inherit (nodePackages) prettier typescript typescript-language-server
@@ -100,6 +103,7 @@
         packages = [
           bear
           binaryen
+          brotli
           caddy
           clang-tools
           emscripten
@@ -113,6 +117,7 @@
           typescript-language-server
           uglify-js
           wasm-bindgen-cli
+          zstd
         ];
         shellHook = ''
           export EM_CACHE="$PWD/.em-cache"

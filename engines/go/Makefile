@@ -1,6 +1,10 @@
 GOROOT := $(shell go env GOROOT)
 
-all: main.wasm wasm_exec.js
+ALL_FILES := main.wasm.br main.wasm.zst main.wasm.gz main.wasm wasm_exec.js
+
+all: $(ALL_FILES)
+
+include ../../rules/compression.mk
 
 main.wasm: main.go go.mod
 	GOOS=js GOARCH=wasm go build -o $@
@@ -11,4 +15,4 @@ wasm_exec.js: $(GOROOT)/misc/wasm/wasm_exec.js
 
 .PHONY: clean
 clean:
-	rm -f main.wasm wasm_exec.js
+	rm -f $(ALL_FILES)

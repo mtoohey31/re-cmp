@@ -11,7 +11,13 @@ index.mjs
 
 WASM_FILES := \
 engines/go/main.wasm \
+engines/go/main.wasm.br \
+engines/go/main.wasm.zst \
+engines/go/main.wasm.gz \
 engines/rust/re_cmp_engine_rust_bg.wasm \
+engines/rust/re_cmp_engine_rust_bg.wasm.br \
+engines/rust/re_cmp_engine_rust_bg.wasm.zst \
+engines/rust/re_cmp_engine_rust_bg.wasm.gz \
 engines/pcre/engine.wasm
 
 .PHONY: build

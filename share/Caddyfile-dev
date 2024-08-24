@@ -1,0 +1,11 @@
+{
+	auto_https off
+	admin off
+}
+
+http://localhost:8080
+
+root * .
+file_server {
+	precompressed br zstd gzip
+}
