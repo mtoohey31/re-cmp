@@ -48,7 +48,7 @@ class Regex {
       ccall("match_drop", null, ["match"], [match]);
 
       res.push(new Match(start, end));
-      prevEnd = end;
+      prevEnd = end + (start === end);
     }
     return res;
   }
