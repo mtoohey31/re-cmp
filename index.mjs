@@ -151,7 +151,14 @@ engineSelect.addEventListener("change", async function () {
   }
 
   // TODO: Loading indicator.
-  const { engine: newEngine } = await import(enginePath);
+  const { engine: newEngine } = await import(
+    `${enginePath}?version=${Date.now()}`
+  );
+  if (regex !== null) {
+    regex.drop();
+    regex = null;
+  }
+  engine.drop();
   engine = newEngine;
 
   await recompile();
