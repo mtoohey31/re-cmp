@@ -2,6 +2,8 @@ JS_FILES := \
 engines/go/index.mjs \
 engines/go/wasm_exec.js \
 engines/index.mjs \
+engines/java-util-regex/index.mjs \
+engines/java-util-regex/build/generated/teavm/js/java-util-regex.js \
 engines/javascript/index.mjs \
 engines/pcre/engine.mjs \
 engines/pcre/index.mjs \
@@ -33,6 +35,10 @@ build: engines
 .PHONY: engines
 engines:
 	make -C engines
+
+.PHONY: serve-dev
+serve-dev:
+	caddy run --config share/Caddyfile-dev
 
 .PHONY: clean
 clean:

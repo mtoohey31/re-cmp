@@ -53,6 +53,10 @@ class Regex {
     return res;
   }
 
+  /**
+   * Drop this regex, freeing resources. This regex cannot be used after drop is
+   * called.
+   */
   drop() {
     ccall("pcre_drop", null, ["pcre"], [this.pcre]);
   }

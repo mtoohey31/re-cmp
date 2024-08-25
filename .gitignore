@@ -9,6 +9,8 @@ result
 *.wasm.zst
 *.wasm.gz
 /engines/go/wasm_exec.js
+/engines/java-util-regex/.gradle
+/engines/java-util-regex/build
 /engines/pcre/compile_commands.json
 /engines/pcre/engine.mjs
 /engines/rust/re_cmp_engine_rust*

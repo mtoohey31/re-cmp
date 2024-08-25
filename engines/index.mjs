@@ -67,8 +67,8 @@ export class Engine {
   }
 
   /**
-   * Drop this engine, freeing resources. This engine cannot be used after drop is
-   * called.
+   * Drop this engine, freeing resources. This engine cannot be used after drop
+   * is called.
    *
    * @abstract
    */
@@ -85,4 +85,5 @@ export const engines = new Map([
   ["Rust regex crate", "./engines/rust/index.mjs"],
   ["PCRE", "./engines/pcre/index.mjs"],
   [defaultEngineName, "./engines/javascript/index.mjs"],
+  ["Java java/util/regex", "./engines/java-util-regex/index.mjs"],
 ]);

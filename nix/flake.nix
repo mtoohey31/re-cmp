@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixpkgs-unstable";
     utils.url = "github:numtide/flake-utils";
+    gradle2nix.url = "github:tadfisher/gradle2nix/v2";
     naersk = {
       url = "github:nix-community/naersk";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -17,7 +18,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, utils, naersk, rust-overlay }: {
+  outputs = { self, nixpkgs, utils, gradle2nix, naersk, rust-overlay }: {
     overlays = rec {
       expects-naersk-and-rust-overlay = final: prev: {
         pcre-wasm =
@@ -30,16 +31,28 @@
             naersk = final.naersk.override { cargo = rust; rustc = rust; };
             re-cmp-engine-rust-target = (naersk.buildPackage {
               pname = "re-cmp-engine-rust";
-              root = builtins.path {
-                path = ../engines/rust;
-                name = "re-cmp-engine-rust-src";
-              };
+              root = ../engines/rust;
               CARGO_BUILD_TARGET = "wasm32-unknown-unknown";
             }).overrideAttrs (_: {
               installPhase = ''
                 cp -r target $out
               '';
             });
+            re-cmp-engine-java-util-regex-build =
+              gradle2nix.builders.${final.stdenv.hostPlatform.system}.buildGradlePackage {
+                pname = "re-cmp-engine-java-util-regex-build";
+                version = "0.1.0";
+                src = ../engines/java-util-regex;
+                lockFile = ../engines/java-util-regex/gradle.lock;
+                gradleBuildFlags = [ "generateJavaScript" ];
+                installPhase = ''
+                  runHook preInstall
+
+                  cp -r build $out
+
+                  runHook postInstall
+                '';
+              };
           in
           final.stdenv.mkDerivation {
             pname = "re-cmp";
@@ -49,6 +62,7 @@
               final.brotli
               final.emscripten
               final.go
+              final.jdk21_headless
               final.nodePackages.uglify-js
               final.pcre-wasm
               rust
@@ -64,6 +78,7 @@
               export GOPATH="$TMPDIR/go"
 
               cp -r ${re-cmp-engine-rust-target} engines/rust/target
+              cp -r ${re-cmp-engine-java-util-regex-build} engines/java-util-regex/build
             '';
             installPhase = ''
               mkdir -p $out/share/re-cmp
@@ -89,8 +104,8 @@
       ];
       pkgs = import nixpkgs { inherit overlays system; };
       inherit (pkgs) bear binaryen brotli caddy clang-tools emscripten go gopls
-        mkShell nodePackages pcre-wasm re-cmp rust-analyzer rust-bin
-        wasm-bindgen-cli zstd;
+        java-language-server jdk21_headless mkShell nodePackages pcre-wasm
+        re-cmp rust-analyzer rust-bin wasm-bindgen-cli zstd;
       rust =
         rust-bin.fromRustupToolchainFile ../engines/rust/rust-toolchain.toml;
       inherit (nodePackages) prettier typescript typescript-language-server
@@ -109,6 +124,9 @@
           emscripten
           go
           gopls
+          gradle2nix.packages.${system}.gradle2nix
+          java-language-server
+          jdk21_headless
           pcre-wasm
           prettier
           rust

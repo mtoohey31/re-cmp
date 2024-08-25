@@ -1,0 +1,372 @@
+{
+  "com.jcraft:jzlib:1.1.3": {
+    "jzlib-1.1.3-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/com/jcraft/jzlib/1.1.3/jzlib-1.1.3-sources.jar",
+      "hash": "sha256-NevWeUHOcCTm59gLYKQlKpaH+g+QmnB5rJBL72wWWM8="
+    },
+    "jzlib-1.1.3.jar": {
+      "url": "https://repo.maven.apache.org/maven2/com/jcraft/jzlib/1.1.3/jzlib-1.1.3.jar",
+      "hash": "sha256-ibE2D0Bzgb9h/eQRAZ2MvQCeuxDP9xXzZpAXoDECdWA="
+    },
+    "jzlib-1.1.3.pom": {
+      "url": "https://repo.maven.apache.org/maven2/com/jcraft/jzlib/1.1.3/jzlib-1.1.3.pom",
+      "hash": "sha256-7bZyUWCFVq2VhNAORrXvOOzxJG1XHA+A8k9QsoWp9oI="
+    }
+  },
+  "commons-io:commons-io:2.16.1": {
+    "commons-io-2.16.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1-sources.jar",
+      "hash": "sha256-/P6E45+0Tjig6gqwgVtTrepv/4nHtyU1vEJJX0AMuaE="
+    },
+    "commons-io-2.16.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.jar",
+      "hash": "sha256-9B97qs1xaJZEes6XWGIfYsHGsKkdiazuSI2ib8R3yE8="
+    },
+    "commons-io-2.16.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/commons-io/commons-io/2.16.1/commons-io-2.16.1.pom",
+      "hash": "sha256-V3fSkiUceJXASkxXAVaD7Ds1OhJIbJs+cXjpsLPDj/8="
+    }
+  },
+  "joda-time:joda-time:2.12.2": {
+    "joda-time-2.12.2-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/joda-time/joda-time/2.12.2/joda-time-2.12.2-sources.jar",
+      "hash": "sha256-we8BCl5aw3kPTS1EwY9S0mD/v4EO2S4rONUMTEQ2A+I="
+    },
+    "joda-time-2.12.2.jar": {
+      "url": "https://repo.maven.apache.org/maven2/joda-time/joda-time/2.12.2/joda-time-2.12.2.jar",
+      "hash": "sha256-jU2AetyOkqg5E9nM1h5jS0kHx42I8wFtBrOz0rR5WgI="
+    },
+    "joda-time-2.12.2.pom": {
+      "url": "https://repo.maven.apache.org/maven2/joda-time/joda-time/2.12.2/joda-time-2.12.2.pom",
+      "hash": "sha256-mphCu1VpGRaS5ycHZtAoLzZwa9SYMxDtyjG8kvKyy80="
+    }
+  },
+  "org.apache:apache:31": {
+    "apache-31.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/apache/31/apache-31.pom",
+      "hash": "sha256-VV0MnqppwEKv+SSSe5OB6PgXQTbTVe6tRFIkRS5ikcw="
+    }
+  },
+  "org.apache.commons:commons-parent:69": {
+    "commons-parent-69.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/apache/commons/commons-parent/69/commons-parent-69.pom",
+      "hash": "sha256-1Q2pw5vcqCPWGNG0oDtz8ZZJf8uGFv0NpyfIYjWSqbs="
+    }
+  },
+  "org.junit:junit-bom:5.10.2": {
+    "junit-bom-5.10.2.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.module",
+      "hash": "sha256-3iOxFLPkEZqP5usXvtWjhSgWaYus5nBxV51tkn67CAo="
+    },
+    "junit-bom-5.10.2.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/junit/junit-bom/5.10.2/junit-bom-5.10.2.pom",
+      "hash": "sha256-Fp3ZBKSw9lIM/+ZYzGIpK/6fPBSpifqSEgckzeQ6mWg="
+    }
+  },
+  "org.sonatype.oss:oss-parent:6": {
+    "oss-parent-6.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/sonatype/oss/oss-parent/6/oss-parent-6.pom",
+      "hash": "sha256-tDBtE+j1OSRYobMIZvHP8WGz0uaZmojQWe6jkyyKhJk="
+    }
+  },
+  "org.teavm:org.teavm.gradle.plugin:0.10.1": {
+    "org.teavm.gradle.plugin-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/org.teavm.gradle.plugin/0.10.1/org.teavm.gradle.plugin-0.10.1.pom",
+      "hash": "sha256-3bahY9L2X9xZv3mPzUe4gZ0BBBLU6WdcOsswuSCm+fg="
+    }
+  },
+  "org.teavm:teavm-classlib:0.10.1": {
+    "teavm-classlib-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-classlib/0.10.1/teavm-classlib-0.10.1-sources.jar",
+      "hash": "sha256-FG/DN6acCDaaVpco6D5PKyRhj69wnJ36D4bxoUzMOrw="
+    },
+    "teavm-classlib-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-classlib/0.10.1/teavm-classlib-0.10.1.jar",
+      "hash": "sha256-rzOG2H3rcjtY3Osxc4gp532Ejehuj/g65TjXqq9ngXQ="
+    },
+    "teavm-classlib-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-classlib/0.10.1/teavm-classlib-0.10.1.module",
+      "hash": "sha256-qzsxnTKrL9QLko1vmUbLIJiyz0XttD0aWKkWCTe9ds8="
+    },
+    "teavm-classlib-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-classlib/0.10.1/teavm-classlib-0.10.1.pom",
+      "hash": "sha256-GwiJ1q4vfvOzv7O8eJdjQia7txetG+vWpkKUMAC4b8U="
+    }
+  },
+  "org.teavm:teavm-core:0.10.1": {
+    "teavm-core-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-core/0.10.1/teavm-core-0.10.1.jar",
+      "hash": "sha256-sd6CoaJ9y+bKgj79FKo8ZFpzv/U4mpBuAYfDr7S0hs4="
+    },
+    "teavm-core-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-core/0.10.1/teavm-core-0.10.1.module",
+      "hash": "sha256-ItOX1gd/lfMZvbfFDK1vXBJXJ/ERAulZ8lEsfWT+Xz0="
+    },
+    "teavm-core-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-core/0.10.1/teavm-core-0.10.1.pom",
+      "hash": "sha256-IEUdDRSonkPSueLbBFmhJFHIB9fngAMFTbSOcRwtN5w="
+    }
+  },
+  "org.teavm:teavm-gradle-plugin:0.10.1": {
+    "teavm-gradle-plugin-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-gradle-plugin/0.10.1/teavm-gradle-plugin-0.10.1.jar",
+      "hash": "sha256-jEMhab9FruujQPiCdd2aOwltixM5rsz6BD04ZQGX3eM="
+    },
+    "teavm-gradle-plugin-0.10.1.module": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-gradle-plugin/0.10.1/teavm-gradle-plugin-0.10.1.module",
+      "hash": "sha256-LwhaElJdRjvSEZN4Uwv8zYOWmXJCNtzT//uSxI0zlHE="
+    },
+    "teavm-gradle-plugin-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-gradle-plugin/0.10.1/teavm-gradle-plugin-0.10.1.pom",
+      "hash": "sha256-MOQk6mVIk9V9QqGsGLng9NaGDagaVh9YFLVJt6N3Zp8="
+    }
+  },
+  "org.teavm:teavm-interop:0.10.1": {
+    "teavm-interop-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-interop/0.10.1/teavm-interop-0.10.1-sources.jar",
+      "hash": "sha256-UJpb7LUcIZtcsRc7l9DQVRy220BEqSmYWd8fYhN2XUE="
+    },
+    "teavm-interop-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-interop/0.10.1/teavm-interop-0.10.1.jar",
+      "hash": "sha256-5E5HqzGg9H99R/+KBzlrLSTweEvEdWEgpUmQ83Bcqsw="
+    },
+    "teavm-interop-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-interop/0.10.1/teavm-interop-0.10.1.module",
+      "hash": "sha256-z4fVth0wsV5Pf2FFWEogXQui5oaDR1H4HM12CB7y/9c="
+    },
+    "teavm-interop-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-interop/0.10.1/teavm-interop-0.10.1.pom",
+      "hash": "sha256-PiHVSv4tNDKGieZ3NvZVrQfH2vo3bqP1Dz27W8xHdp4="
+    }
+  },
+  "org.teavm:teavm-jso:0.10.1": {
+    "teavm-jso-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso/0.10.1/teavm-jso-0.10.1-sources.jar",
+      "hash": "sha256-qJDvzp91Hnr1aBiL4P5vYTEcSaoz1UBCFQAHF2ABGO4="
+    },
+    "teavm-jso-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso/0.10.1/teavm-jso-0.10.1.jar",
+      "hash": "sha256-+BgoZPT0p5cL1T8hRUgOWLyW0ikOhp5E4u4oeGTS49w="
+    },
+    "teavm-jso-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso/0.10.1/teavm-jso-0.10.1.module",
+      "hash": "sha256-Sexns7bIecDoYK/yH+TwE2HBleRhZsAArzN1x6Nfs6I="
+    },
+    "teavm-jso-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso/0.10.1/teavm-jso-0.10.1.pom",
+      "hash": "sha256-gns88c09ubZRJf+raoW4sRF5fksOJ3ecHI+0n2rk+/g="
+    }
+  },
+  "org.teavm:teavm-jso-apis:0.10.1": {
+    "teavm-jso-apis-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-apis/0.10.1/teavm-jso-apis-0.10.1-sources.jar",
+      "hash": "sha256-NWxRrkmS+hYsnRC6rGhCYMxjEJFQiSXypode6wIGEfI="
+    },
+    "teavm-jso-apis-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-apis/0.10.1/teavm-jso-apis-0.10.1.jar",
+      "hash": "sha256-4r9rxNCVnyUizgjCJt+uaN8YcgAzolM9Sagn+/s+DBw="
+    },
+    "teavm-jso-apis-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-apis/0.10.1/teavm-jso-apis-0.10.1.module",
+      "hash": "sha256-GJAbhaDHPrxgf6OQ6jkhrfj2ER76vkvD6+4J6qNNZDM="
+    },
+    "teavm-jso-apis-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-apis/0.10.1/teavm-jso-apis-0.10.1.pom",
+      "hash": "sha256-FPaPHL+CLlAmZuZfMuR9dIzD557WX9n5Kh/hK3jKw0o="
+    }
+  },
+  "org.teavm:teavm-jso-impl:0.10.1": {
+    "teavm-jso-impl-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-impl/0.10.1/teavm-jso-impl-0.10.1-sources.jar",
+      "hash": "sha256-iqllYGAxLuImTsxZFOuTxGgiGiQePFLIeRQwPos9JMs="
+    },
+    "teavm-jso-impl-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-impl/0.10.1/teavm-jso-impl-0.10.1.jar",
+      "hash": "sha256-BPkBiPL1N2FpTnPvwVyr88WNt/swMqer2DDFCK9umIk="
+    },
+    "teavm-jso-impl-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-impl/0.10.1/teavm-jso-impl-0.10.1.module",
+      "hash": "sha256-jdWRQE4AiuxVs16Q3K2kGDx9pNkWPCYJaUL9p/5DX4s="
+    },
+    "teavm-jso-impl-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-jso-impl/0.10.1/teavm-jso-impl-0.10.1.pom",
+      "hash": "sha256-3Su9ht7P+cHkmIU54Fgo1bOyzT78Rv5BqODFFMuW2lw="
+    }
+  },
+  "org.teavm:teavm-metaprogramming-api:0.10.1": {
+    "teavm-metaprogramming-api-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-metaprogramming-api/0.10.1/teavm-metaprogramming-api-0.10.1.jar",
+      "hash": "sha256-yHdJDoQD2A8wxSXp9MQbJ/BvlYaGDW4mSJ+FBFksGFk="
+    },
+    "teavm-metaprogramming-api-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-metaprogramming-api/0.10.1/teavm-metaprogramming-api-0.10.1.module",
+      "hash": "sha256-B/EUQ72LFxN1DhDj8g8IKc99ViRG+/Gfq50p6L0JMWg="
+    },
+    "teavm-metaprogramming-api-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-metaprogramming-api/0.10.1/teavm-metaprogramming-api-0.10.1.pom",
+      "hash": "sha256-sAdykZCyk60bGte2tD8T1WCkzyCvKXmdh1fWK/nd67g="
+    }
+  },
+  "org.teavm:teavm-metaprogramming-impl:0.10.1": {
+    "teavm-metaprogramming-impl-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-metaprogramming-impl/0.10.1/teavm-metaprogramming-impl-0.10.1-sources.jar",
+      "hash": "sha256-+4ADuKiweoDyOEv9+eg/e8HrW3aD+AGgyXSTL4qSlOk="
+    },
+    "teavm-metaprogramming-impl-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-metaprogramming-impl/0.10.1/teavm-metaprogramming-impl-0.10.1.jar",
+      "hash": "sha256-/HkGMl1eNt96vqjQbYBiE0eyu1C0k41OPiTL6JHT21A="
+    },
+    "teavm-metaprogramming-impl-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-metaprogramming-impl/0.10.1/teavm-metaprogramming-impl-0.10.1.module",
+      "hash": "sha256-DziujL+JoRIr2tJfguBSgenS+UBNYNbjJL6NifyWStc="
+    },
+    "teavm-metaprogramming-impl-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-metaprogramming-impl/0.10.1/teavm-metaprogramming-impl-0.10.1.pom",
+      "hash": "sha256-ss6XKy7yUF6qXkSuNAiZ5f8t/ylWE/wHvGRbMtmOMw8="
+    }
+  },
+  "org.teavm:teavm-platform:0.10.1": {
+    "teavm-platform-0.10.1-sources.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-platform/0.10.1/teavm-platform-0.10.1-sources.jar",
+      "hash": "sha256-w7B9YubOV3n12g1AxfnbCkqdPLJmZw3PpH4LCDTUTTk="
+    },
+    "teavm-platform-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-platform/0.10.1/teavm-platform-0.10.1.jar",
+      "hash": "sha256-LK6hJNStTKfSDKNomt5GQMk9F/R/x+Lt6I8VrvKffDs="
+    },
+    "teavm-platform-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-platform/0.10.1/teavm-platform-0.10.1.module",
+      "hash": "sha256-QiS8YVlDYR+tYdLQqrWezn+uPNgpGgHuZKEN8okQCJA="
+    },
+    "teavm-platform-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-platform/0.10.1/teavm-platform-0.10.1.pom",
+      "hash": "sha256-jdpbFXtUWNEUgUKYkEBRLozyMqtbCCE9bmowUGNiI3k="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-asm:0.10.1": {
+    "teavm-relocated-libs-asm-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm/0.10.1/teavm-relocated-libs-asm-0.10.1.jar",
+      "hash": "sha256-5amoKVZkMXVZyA95WloWjnB/1ZYDaauXJLBdS2Bk/xc="
+    },
+    "teavm-relocated-libs-asm-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-asm/0.10.1/teavm-relocated-libs-asm-0.10.1.module",
+      "hash": "sha256-y92KzkNXuS6UDW0d6fhl5bIcCJDctX82n6ReGZjBDTw="
+    },
+    "teavm-relocated-libs-asm-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-asm/0.10.1/teavm-relocated-libs-asm-0.10.1.pom",
+      "hash": "sha256-rw6pokQsNaTiH7WoHqae1K/F5D1oioBS37lJzoPG4ig="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-asm-analysis:0.10.1": {
+    "teavm-relocated-libs-asm-analysis-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-asm-analysis/0.10.1/teavm-relocated-libs-asm-analysis-0.10.1.jar",
+      "hash": "sha256-uWvkWBMANYCAXxZ/Io0Mz80TmOPHE7gKug93CQhMKqs="
+    },
+    "teavm-relocated-libs-asm-analysis-0.10.1.module": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-analysis/0.10.1/teavm-relocated-libs-asm-analysis-0.10.1.module",
+      "hash": "sha256-YP2lgMw1d0CZ23BxIvZTDwaDVb+4eSNDJs3in9WwWYw="
+    },
+    "teavm-relocated-libs-asm-analysis-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-analysis/0.10.1/teavm-relocated-libs-asm-analysis-0.10.1.pom",
+      "hash": "sha256-NYFI2hWFZ4a8z923W8EH93jm3kEu9nPl4W2CMECdARQ="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-asm-commons:0.10.1": {
+    "teavm-relocated-libs-asm-commons-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-commons/0.10.1/teavm-relocated-libs-asm-commons-0.10.1.jar",
+      "hash": "sha256-1jEdm1qBUTdkG/6P7ExjagvqFWNbKLRj88dh/6XL1ms="
+    },
+    "teavm-relocated-libs-asm-commons-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-asm-commons/0.10.1/teavm-relocated-libs-asm-commons-0.10.1.module",
+      "hash": "sha256-Y7kJwChYWT0Vx2dEqFyVsZ7iIEZ9/cDaFp5f/KrEhdM="
+    },
+    "teavm-relocated-libs-asm-commons-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-commons/0.10.1/teavm-relocated-libs-asm-commons-0.10.1.pom",
+      "hash": "sha256-DeBtqg01l+TRjR52xu13CBGPLTMJ+357V2UKokfHsjs="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-asm-tree:0.10.1": {
+    "teavm-relocated-libs-asm-tree-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-tree/0.10.1/teavm-relocated-libs-asm-tree-0.10.1.jar",
+      "hash": "sha256-sCdtFB7gEqcYkBLgdtAkR3/Sy0nwfmPJCMFji6i7zH0="
+    },
+    "teavm-relocated-libs-asm-tree-0.10.1.module": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-tree/0.10.1/teavm-relocated-libs-asm-tree-0.10.1.module",
+      "hash": "sha256-bVaM1cRgJ/T1ExFjhonGMcDnSHs2lsgCc1J7Py5RxFM="
+    },
+    "teavm-relocated-libs-asm-tree-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-tree/0.10.1/teavm-relocated-libs-asm-tree-0.10.1.pom",
+      "hash": "sha256-BhkuY03pLNh3no+rtltC82XJ2vBbG+/mtialtFe5eEM="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-asm-util:0.10.1": {
+    "teavm-relocated-libs-asm-util-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-util/0.10.1/teavm-relocated-libs-asm-util-0.10.1.jar",
+      "hash": "sha256-pwOiRCTfIrflvS58cisvA/LUSBR/r2EHZK41IazXJr0="
+    },
+    "teavm-relocated-libs-asm-util-0.10.1.module": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-util/0.10.1/teavm-relocated-libs-asm-util-0.10.1.module",
+      "hash": "sha256-4+T8QWKUP1EEjlZVE1L6qNUx79WuMS/hDGm+svzLcTw="
+    },
+    "teavm-relocated-libs-asm-util-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-asm-util/0.10.1/teavm-relocated-libs-asm-util-0.10.1.pom",
+      "hash": "sha256-Z9TTvof7GhQ8UKUknYko6N64KdF2ZxHYwxIs6F8rDAQ="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-commons-io:0.10.1": {
+    "teavm-relocated-libs-commons-io-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-commons-io/0.10.1/teavm-relocated-libs-commons-io-0.10.1.jar",
+      "hash": "sha256-7Gpjgk9PSgLxTeKtQhPe7rYJ75Ayz1EMiK052PdAwWM="
+    },
+    "teavm-relocated-libs-commons-io-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-commons-io/0.10.1/teavm-relocated-libs-commons-io-0.10.1.module",
+      "hash": "sha256-DxjGtk2PqIBBJaMCjZZFeSX90rbxeBaB+gMX9keZyEY="
+    },
+    "teavm-relocated-libs-commons-io-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-commons-io/0.10.1/teavm-relocated-libs-commons-io-0.10.1.pom",
+      "hash": "sha256-G+duQSO1hK5ntE5eqDriDssTAnWzUx/HsBI5yiMvARY="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-hppc:0.10.1": {
+    "teavm-relocated-libs-hppc-0.10.1.jar": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-hppc/0.10.1/teavm-relocated-libs-hppc-0.10.1.jar",
+      "hash": "sha256-LnGbiCw6LrlUQBq9aSQafhgmuUDoC8wCuXPxCjY59Qo="
+    },
+    "teavm-relocated-libs-hppc-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-hppc/0.10.1/teavm-relocated-libs-hppc-0.10.1.module",
+      "hash": "sha256-iYdtUpfzRUwCnsG4qIAUAJekFgBepnXp+eQj2Cj5vTQ="
+    },
+    "teavm-relocated-libs-hppc-0.10.1.pom": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-hppc/0.10.1/teavm-relocated-libs-hppc-0.10.1.pom",
+      "hash": "sha256-CoCsXWnH1TkI53NbaAixpw4RdRglGroJTOA/KL0+Wk8="
+    }
+  },
+  "org.teavm:teavm-relocated-libs-rhino:0.10.1": {
+    "teavm-relocated-libs-rhino-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-relocated-libs-rhino/0.10.1/teavm-relocated-libs-rhino-0.10.1.jar",
+      "hash": "sha256-InUiDxkXUALxBVaUCZsqMo6z8Ux54uw/LFUCsRa1gK0="
+    },
+    "teavm-relocated-libs-rhino-0.10.1.module": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-rhino/0.10.1/teavm-relocated-libs-rhino-0.10.1.module",
+      "hash": "sha256-YErPOYVgU0xe4PwVaF7YhWUWQow31gtv3UNLj37U3Qo="
+    },
+    "teavm-relocated-libs-rhino-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-relocated-libs-rhino/0.10.1/teavm-relocated-libs-rhino-0.10.1.pom",
+      "hash": "sha256-npZ2SW8tK5x51F0bx8teykJzq/eiUOyUAbMDEZ2FuIU="
+    }
+  },
+  "org.teavm:teavm-tooling:0.10.1": {
+    "teavm-tooling-0.10.1.jar": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-tooling/0.10.1/teavm-tooling-0.10.1.jar",
+      "hash": "sha256-OqT5VAnPqlsbmM3uyy7OzL+rY6vQRA5WJvQmvqQ4jqw="
+    },
+    "teavm-tooling-0.10.1.module": {
+      "url": "https://plugins.gradle.org/m2/org/teavm/teavm-tooling/0.10.1/teavm-tooling-0.10.1.module",
+      "hash": "sha256-/iNH1jJk/GJjcFXhu1ZTY1sFYOBmWvXbQyZoPKoQTvc="
+    },
+    "teavm-tooling-0.10.1.pom": {
+      "url": "https://repo.maven.apache.org/maven2/org/teavm/teavm-tooling/0.10.1/teavm-tooling-0.10.1.pom",
+      "hash": "sha256-463NUiElQa1snKccLqKnC1OgXW3tJLMbi9Iar/MYRbY="
+    }
+  }
+}

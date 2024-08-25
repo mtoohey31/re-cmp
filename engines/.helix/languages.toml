@@ -1,0 +1,6 @@
+[language-server.java-language-server]
+command = "java-language-server"
+
+[[language]]
+name = "java"
+language-servers = ["java-language-server"]
