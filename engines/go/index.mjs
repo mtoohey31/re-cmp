@@ -1,0 +1,1 @@
+await import("./wasm_exec.js");const go=new Go;const result=await WebAssembly.instantiateStreaming(fetch("engines/go/main.wasm"),go.importObject);go.run(result.instance);class Engine{compile(regex){const res=globalThis.reCmpEngineGo.compile(regex);if(res instanceof Error){throw res}return res}drop(){globalThis.reCmpEngineGo.drop()}}export const engine=new Engine;
